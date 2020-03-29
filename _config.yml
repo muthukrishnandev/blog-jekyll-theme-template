@@ -1,0 +1,108 @@
+title: Blog Theme # The title of the blog
+short_title: # short title of the blog, if empty, title is used
+description: > # this means to ignore newlines until "url:"
+  Simple Blog description
+
+# site url details
+url: https://muthukrishnandev.github.io # this is your site's root address. (No trailing slash at the end)
+baseurl: "/blog-theme-demo" # this is your site's path after domain address. (No trailing slash at the end)
+
+author:
+  name: Blog Author # Your name
+  email: author@blog.com # your email shown in about page, (comment this line to hide email)
+  about: a short description about you. # short description about you in about page
+  image: "/author.png" # image in about page, must be placed in images folder
+
+# two options are available
+# yearwise, the posts are displayed by post year
+# categorywise, the posts are displayed by category
+home_page: yearwise
+# home_page: categorywise
+
+# uncomment the line below, when using it as content
+remote_theme: muthukrishnandev/blog-theme
+
+#--------------------------------------------------------------------------------
+#    Small Tweaks
+#--------------------------------------------------------------------------------
+
+# permalink: /:collection/:slug # change this permalink for all posts
+
+back_to: "Home" # In the post page, you have a back button above the title, you can custom the text by yourself.
+pinned_post_title: "Pinned Posts" # In home page, the pinned posts title is shown, you can custom the text.
+
+# refer to https://shopify.github.io/liquid/filters/date/ if you want to customize this
+date_format: "%b %d" # date format of posts in home page
+
+show_excerpts: false # set to true to show excerpts on the homepage
+show_pinned_posts: true # set to true to show pinned posts on the homepage
+rss_feed: false # set true to enable rss feed
+
+# generate social links in about page.
+social_links:
+  github: username
+  gitlab: username
+  # linkedin: username
+  # facebook: username
+  # twitter: username
+  # instagram: username
+  # youtube: username
+  # flickr: username
+  # dribbble: username
+  # pinterest: username
+  # reddit: username
+  # telegram: username
+
+social_links_new_tab: false
+
+#--------------------------------------------------------------------------------
+#    Additional Options, change only if needed
+#--------------------------------------------------------------------------------
+
+favicon_path: "/assets/favicons" # path where all favicons are placed (No trailing slash in the end)
+images_path: "/assets/images" # path where all images are placed (No trailing slash in the end)
+favicon: "/favicon.ico" # set the favicon of the site, must be placed in favicons folder
+
+#--------------------------------------------------------------------------------
+#    DO NOT EDIT BELOW THIS!
+#--------------------------------------------------------------------------------
+
+collections_dir: contents
+
+collections:
+  pinned_posts: # like regular posts but will be pinned at the top
+    output: true
+    permalink: /pinned/:slug/ # change the permalink
+  posts: # regular posts
+    output: true
+    permalink: /post/:slug/ # change the permalink
+
+defaults:
+  - scope:
+      path: "" # all files
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: "" # all files
+      type: "pinned_posts"
+    values:
+      layout: "post"
+  - scope:
+      path: "" # all files
+    values:
+      layout: "default"
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-remote-theme
+
+# Exclude these files from your production _site
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - README.md
+  - CNAME
+  - vendor
